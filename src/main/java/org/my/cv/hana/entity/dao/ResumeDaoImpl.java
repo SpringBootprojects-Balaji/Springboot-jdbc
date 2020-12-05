@@ -1,27 +1,32 @@
 package org.my.cv.hana.entity.dao;
 
-
-
+import org.my.cv.entities.PersonalData;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 /*import org.my.cv.rowmappers.CustomerRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;*/
 
-public class ResumeDaoImpl {
+@Repository
+public class ResumeDaoImpl implements ResumeDao {
 
-	// @Autowired
-	// private JdbcTemplate jdbcTemplate;
-	/*@Override
-	public PersonalData getpersonaldata(String name) {
-		/*
-		 * String sql =
-		 * "SELECT ID,NAME,DESC FROM D4A4022E7221468688718C057DEA728C.PERSONAL_DATA  WHERE NAME = ?"
-		 * ; return jdbcTemplate.queryForObject(sql, new Object[]{name}, new
-		 * CustomerRowMapper());
-		 */
-		//return null;
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	@Override
+	public PersonalData getpersonaldata(int id) {
+		
+		  String sql =
+		  "SELECT personid, personname, decription FROM public.GENERAL_INFO WHERE personid = ?";
+		
+		  return jdbcTemplate.queryForObject(
+				  sql, new Object[]{id},
+	                (rs, rowNum) -> 
+				  new PersonalData(rs.getInt("personid"), rs.getString("personname"), rs.getString("decription"))
+	          );	 
 
-	//} */
+	}  
 
 }

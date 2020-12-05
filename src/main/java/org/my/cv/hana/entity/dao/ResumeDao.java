@@ -4,7 +4,7 @@ import org.my.cv.entities.PersonalData;
 
 public interface ResumeDao {
 	
-	 public PersonalData getpersonaldata(String name);
+	 public PersonalData getpersonaldata(int id);
 	
 
 }

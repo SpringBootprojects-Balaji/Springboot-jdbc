@@ -4,6 +4,16 @@ public class PersonalData {
 	int id;
 	String name;
 	String desc;
+	
+	public PersonalData() {
+		
+	}
+	public PersonalData(int id, String name, String desc) {
+	
+		this.id = id;
+		this.name = name;
+		this.desc = desc;
+	}
 	public int getId() {
 		return id;
 	}
