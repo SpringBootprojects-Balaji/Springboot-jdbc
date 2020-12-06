@@ -19,12 +19,21 @@ public class ResumeDaoImpl implements ResumeDao {
 	public PersonalData getpersonaldata(int id) {
 		
 		  String sql =
-		  "SELECT personid, personname, decription FROM public.GENERAL_INFO WHERE personid = ?";
+		  "SELECT personid, personname, decription,dateofbirth,housenumber,street,city,country,email,phone,countrycode FROM public.GENERAL_INFO WHERE personid = ?";
 		
 		  return jdbcTemplate.queryForObject(
 				  sql, new Object[]{id},
 	                (rs, rowNum) -> 
-				  new PersonalData(rs.getInt("personid"), rs.getString("personname"), rs.getString("decription"))
+				  new PersonalData(rs.getInt("personid"), rs.getString("personname"), 
+						  rs.getString("decription"),
+						  rs.getDate("dateofbirth"),
+						  rs.getInt("housenumber"),
+						  rs.getString("street"),
+						  rs.getString("city"),
+						  rs.getString("country"),
+						  rs.getString("email"),
+						  rs.getString("phone"),
+						  rs.getString("countrycode")) 
 	          );	 
 
 	}  
