@@ -28,15 +28,25 @@ public class ResumeService {
 		model.put("email", pd.getEmail());
 		model.put("phone", pd.getCountrycode() + ' ' + pd.getPhone());
 	    LocalDate ld = LocalDate.parse(pd.getDob().toString());
-		model.put("dateofbirth" ,ld.getDayOfMonth() + "th" + ' ' + ld.getMonth().toString().toLowerCase() + ' ' +  ld.getYear());
+		model.put("dateofbirth" ,ld.getDayOfMonth() + "th" + ' ' + 
+				ld.getMonth().toString().toLowerCase() + ' ' +  
+				ld.getYear());
 	} 
 	
 	
-	public void createModel(ModelMap model) {
+	public void creategetmodel(ModelMap model) {
 		
 		setHeader(model);
 		
 	}
+	
+	public void createpostmodel(ModelMap model) {
+	 	
+	
+
+	}
+	
+	
 	
 	
 
