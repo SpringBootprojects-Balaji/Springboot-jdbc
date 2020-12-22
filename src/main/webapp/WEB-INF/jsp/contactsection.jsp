@@ -23,6 +23,14 @@
 						<div class="text-md-right">
 							<button class="site-btn">Send message</button>
 						</div>
+						
+						<div class="text-md-left">
+							<button class="site-btn">update message</button>
+						</div>
+						
+						<div class="text-md-center">
+							<button class="site-btn">delete message</button>
+						</div>
 					</form>
 				</div>
 			</div>

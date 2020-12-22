@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
     pageEncoding="ISO-8859-1"%>
-	<section class="resume-section spad">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<section class="resume-section spad">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xl-7 offset-xl-2">
@@ -8,18 +9,14 @@
 						<h2>Work Experience</h2>
 					</div>
 					<ul class="resume-list">
-						<li>
-							<h2>2016-Present</h2>
-							<h3>Web Design Company</h3>
-							<h4>Web Designer</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor orci ut sapien scelerisque viverra. Sed trist ique justo nec mauris efficitur, ut lacinia elit dapibus. In egestas elit in dap ibus laoreet. Duis magna libero, fermentum ut facilisis id, pulvinar eget tortor. Vestibulum pelle ntesque tincidunt lorem, vitae euismod felis porttitor sed. </p>
+					<c:forEach items="${employeesdata}" var="employeedata">
+					<li>
+							<h2><c:out value="${employeedata.duration}"></c:out> </h2>
+							<h3><c:out value="${employeedata.company}"></c:out></h3>
+							<h4><c:out value="${employeedata.role}"></c:out></h4>
+							<p><c:out value="${employeedata.description}"></c:out></p>
 						</li>
-						<li>
-							<h2>2014-2016</h2>
-							<h3>Web Design Company</h3>
-							<h4>Web Designer</h4>
-							<p>Sit amet, consectetur adipiscing elit. Sed porttitor orci ut sapien scelerisque viverra. Sed trist ique justo nec mauris efficitur, ut lacinia elit dapibus. In egestas elit in dap ibus laoreet. Duis magna libero, fermentum ut facilisis id, pulvinar eget tortor. Vestibulum pelle ntesque tincidunt lorem, vitae euismod felis porttitor sed. </p>
-						</li>
+					</c:forEach>
 					</ul>
 				</div>
 			</div>
