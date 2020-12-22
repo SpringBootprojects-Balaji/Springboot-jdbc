@@ -1,6 +1,6 @@
 package org.my.cv.entities;
 
-public class ResumeData {
+public class WorkExperienceData {
 	
 	private String duration;
 	private String description;
@@ -8,7 +8,7 @@ public class ResumeData {
 	private String role;
 	
 	
-	public ResumeData(String duration, String description, String company, String role) {
+	public WorkExperienceData(String duration, String description, String company, String role) {
 		this.duration = duration;
 		this.description = description;
 		this.company = company;

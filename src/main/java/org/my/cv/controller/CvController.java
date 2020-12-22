@@ -41,8 +41,7 @@ public class CvController {
 			,@RequestParam String message) {
 		//model.put("message", this.message);
 		resumeservice.creategetmodel(model);
-		resumeservice.createpostmodel(model);
-		System.out.println(message);
+		resumeservice.createpostmodel(model,name,email,subject,message);
 		return "welcome";
 	}
 	

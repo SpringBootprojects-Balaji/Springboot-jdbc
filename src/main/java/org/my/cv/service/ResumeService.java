@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import org.my.cv.entities.EducationData;
 import org.my.cv.entities.PersonalData;
 import org.my.cv.entities.ReferenceData;
-import org.my.cv.entities.ResumeData;
+import org.my.cv.entities.WorkExperienceData;
 import org.my.cv.hana.entity.dao.ResumeDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.my.cv.entities.PersonalData;
@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.my.cv.hana.entity.dao.ResumeDaoImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Service("resumeservice")
 public class ResumeService {
@@ -41,7 +42,7 @@ public class ResumeService {
 	} 
 	
 	public void setResume(ModelMap model) {
-		List<ResumeData> pd = rdaoimpl.getResumedata(1);
+		List<WorkExperienceData> pd = rdaoimpl.getResumedata(1);
 		pd.stream().forEach((data) -> data.setCompany("MYONWNCOMPANY"));
 		model.put("employeesdata", pd);
 	}
@@ -65,8 +66,18 @@ public class ResumeService {
 		
 	}
 	
-	public void createpostmodel(ModelMap model) {
-	 	
+	public void createpostmodel(ModelMap model, String name, String email ,String subject
+			,String message)   {
+		
+		 try
+		 {
+			 rdaoimpl.setLeadData(name, email ,subject, message);
+			 model.put("success", true);
+		 }
+		 catch(Exception e) {
+			 model.put("success", false); 
+		 }
+		  
 	
 
 	}
